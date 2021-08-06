@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: 'jdbc:postgresql://127.0.0.1:5432/mambo_db'
+    username: mambo
+    password: mambo
+    driver-class-name: org.postgresql.Driver
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: true
+      tracing:
+        include-parameter-values: false
+      logging: slf4j
+      log-format: '%(currentTime)|%(executionTime)|%(category)|connection%(connectionId)|%(effectiveSql)'
