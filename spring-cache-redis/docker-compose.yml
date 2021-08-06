@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  redis:
+    container_name: cache_store
+    image: redis:6.2.1
+    ports:
+      - 6379:6379
+    environment:
+      - REQUIREPASS=spring
