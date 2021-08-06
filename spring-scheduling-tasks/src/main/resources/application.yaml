@@ -1,0 +1,33 @@
+spring:
+  main:
+    banner-mode: off
+  task:
+    scheduling:
+      pool:
+        size: 15
+      thread-name-prefix: scheduling-
+    execution:
+      pool:
+        core-size: 8
+        max-size: 25
+        queue-capacity: 100
+        allow-core-thread-timeout: true
+      thread-name-prefix: task-
+  quartz:
+    scheduler-name: quartzScheduler
+    job-store-type: memory
+    auto-startup: true
+    startup-delay: 10s
+    wait-for-jobs-to-complete-on-shutdown: true
+    properties:
+      org.quartz.scheduler.instanceName: QuartzScheduler
+      org.quartz.scheduler.instanceId: AUTO
+      org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
+      org.quartz.threadPool.threadCount: 25
+      org.quartz.threadPool.threadPriority: 5
+
+management:
+  endpoint:
+    scheduledtasks:
+      enabled: true
+
